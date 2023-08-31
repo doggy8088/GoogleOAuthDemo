@@ -1,7 +1,14 @@
+using Google.Apis.Auth.OAuth2;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddSingleton<ClientSecrets>((sp) =>
+{
+    return GoogleClientSecrets.FromFile("client_secret.json").Secrets;
+});
 
 var app = builder.Build();
 

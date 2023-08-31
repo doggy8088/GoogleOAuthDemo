@@ -53,6 +53,7 @@ namespace GoogleOAuthDemo.Controllers
         public async Task<IActionResult> RedirectUri(string code, string state, string scope)
         {
             // TODO: Check the "state" to avoid CSRF attack
+            // https://auth0.com/docs/secure/attack-protection/state-parameters
 
             var redirect_uri = configuration.GetValue<string>("OAuth:RedirectUrl");
 
